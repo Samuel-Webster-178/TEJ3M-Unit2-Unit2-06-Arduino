@@ -3,25 +3,25 @@
   Created on: Feb 2023
   Uses distance sensor
 */
-const int trigPin = 9;
-const int echoPin = 10;
+const int TRIG_PIN = 9;
+const int ECHO_PIN = 10;
 
 float duration, distance;
 
 void setup() {
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(trigPin, LOW);
+  digitalWrite(TRIG_PIN, LOW);
   delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
+  digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
+  digitalWrite(TRIG_PIN, LOW);
 
-  duration = pulseIn(echoPin, HIGH);
+  duration = pulseIn(ECHO_PIN, HIGH);
   distance = (duration*.0343)/2;
   Serial.print("Distance: ");
   Serial.println(distance);
